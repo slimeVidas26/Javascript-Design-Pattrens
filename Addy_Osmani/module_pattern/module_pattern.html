@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Object Creation</title>
+</head>
+<body>
+    <script>
+
+       var myModule = {
+       
+       myProperty :"someValue",
+
+       myConfig :{
+           useCaching:true,
+           language:"En"
+       },
+
+       saySomething :function(){
+           console.log("Where in the world is Paul Irish today?");
+       },
+
+       reportMyConfig :function(){
+           console.log("Caching is :" + (this.myConfig.useCaching ? "Enabled":"disabled"));
+       },
+
+       updateMyConfig :function(newConfig){
+           if(typeof newConfig ==="object"){
+           this.myConfig = newConfig;
+           console.log(this.myConfig.language);
+        }
+       }
+       };
+
+       myModule.saySomething();
+       myModule.reportMyConfig();
+
+       myModule.updateMyConfig({
+            language:"Fr",
+           useCaching:false
+         
+       })
+
+       myModule.reportMyConfig();
+  
+
+
+    </script>
+</body>
+</html>

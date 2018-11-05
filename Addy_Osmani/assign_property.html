@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Object Creation</title>
+</head>
+<body>
+    <script>
+    // Each of the following options will create a new empty object:
+
+   var newObject = {};
+   var newObject = Object.create(Object.prototype);
+   var newObject = new Object();
+
+   console.log(newObject);
+
+   //dot syntax
+
+   //set property
+   newObject.someProperty = "Hello";
+
+   //get property
+   var value = newObject.someProperty;
+
+   //square brackets syntax
+
+   //set property
+   newObject["someProperty"] = "Hello";
+   console.log('newObject["someProperty"]:',newObject["someProperty"]);
+
+
+   //get property
+   var value = newObject["someProperty"];
+
+   // 3. Object.defineProperty
+
+   //set property
+   Object.defineProperty(newObject,"someProperty",{
+    value: "for more control of the property's behavior",
+    writable: true,
+    enumerable: true,
+    configurable: true
+   });
+
+   console.log('newObject.someProperty:',newObject.someProperty);
+   
+
+
+    </script>
+</body>
+</html>

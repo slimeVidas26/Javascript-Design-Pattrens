@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Object Creation</title>
+</head>
+<body>
+    <script>
+
+        var Car = function(model,year,miles){
+            this.model = model;
+            this.year = year;
+            this.miles = miles;
+
+           
+        }
+
+         Car.prototype.toString = function(){
+             console.log(this)
+                return this.model + " has done " + this.miles + " miles";
+            }
+
+        var civic = new Car("Alfa",2001,45200777);
+        var honda = new Car("beta",2018,420888);
+
+        console.log(civic.toString());
+        console.log(honda.toString());
+   
+  
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Patterns</title>
+</head>
+<body>
+    <h1>Constructor Patterns</h1>
+    <script>
+    var peopleConstructor = function(name,age,city){
+    // var tmp = {};
+
+    this.name = name;
+    this.age = age;
+    this.city = city;
+
+    this.printPerson = function(){
+        console.log( this.name +","+ this.age +"," + this.city );
+        // console.log('this inside printPerson',this)
+    }
+
+    //return tmp;
+}
+
+var person1 = new peopleConstructor('john',45,'Chicago');
+person1.printPerson();
+
+// console.dir(peopleFactory('john',45,'Chicago'));
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Object Creation</title>
+</head>
+<body>
+    <script>
+
+        //normal module pattern
+
+       var testModule  = {
+
+            counter:0,
+
+           incrementCounter : function(){
+               return this.counter++;
+           },
+           resetCounter : function(){
+               console.log("counter value prior to reset from module pattern: " + this.counter)
+           }
+
+       }
+
+       testModule.incrementCounter();
+       testModule.resetCounter();
+
+       ////////////////////////////////////////////////////////////////////////
+
+       var testModule = (function(){
+
+        var counter = 7;
+
+        return {
+            incrementCounter:function(){
+                counter++;
+            },
+            resetCounter:function(){
+                console.log("counter value prior to reset from self-invoked module pattern: " + counter)
+            }
+        }
+       })();
+
+       testModule.incrementCounter();
+       testModule.resetCounter();
+       ///////////////////////////////////////////////////////////////
+         
+         var myFonction = (function(){
+             console.log("fired from my function");
+
+            return {
+                setWord :function(x){
+                    console.log(x)
+                }
+            }
+         })();
+
+         myFonction.setWord("test");
+
+  
+
+
+    </script>
+</body>
+</html>
