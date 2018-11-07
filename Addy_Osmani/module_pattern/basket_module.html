@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Basket Module</title>
+</head>
+<body>
+    <script>
+
+       var basketModule = (function(){
+           
+           //private
+           var basket = [];
+
+           function doSomethingPrivate(){
+               //...
+           }
+
+           function doSomethingElsePrivate(){
+               //...
+           }
+
+            //return an object exposed to the public
+           return {
+                //add item to our basket
+               addItem : function(values){
+                 basket.push(values);
+                 console.log("Basket",basket)
+               },
+
+               //get the count of items in the basket
+               getItemCount :function(){
+                 return basket.length;
+               },
+
+               //public alias to a private function
+               doSomething :doSomethingPrivate,
+
+               //get the total value of items in the basket
+               getTotal :function(){
+                   var q = this.getItemCount();
+                   var p = 0;
+
+                   while(q--){
+                       p+= basket[q].price;
+                   }
+                   return p;
+               },
+
+                getBasket:function(){
+                   var  temp = {};
+               temp.basket = basket;
+                 return temp;
+
+                }
+               
+            }
+       })();
+
+       //basketModule returns an object with a public API. we can use
+
+       basketModule.addItem(
+           {
+               item:"bread",
+               price:0.5
+           }
+       
+       );
+
+       basketModule.addItem(
+        {
+               item:"butter",
+               price:0.3
+           }
+       );
+
+       //output 2
+       console.log(basketModule.getItemCount());
+
+       //output 0.8
+       console.log(basketModule.getTotal());
+
+       //output undefined
+       // This is because the basket itself is not exposed as a part of our
+       // public API
+       console.log(basketModule.basket);
+
+       
+        //will work
+       console.log(basketModule.getBasket());
+
+
+
+
+    </script>
+</body>
+</html>
